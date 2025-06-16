@@ -1,0 +1,14 @@
+# 1. Pull a base image with required tools
+FROM openjdk:17-jdk-alpine
+
+# 2. Create a folder in the container
+WORKDIR /app
+
+# 3. Copy source code from host to container
+COPY src/Main.java Main.java
+
+# 4. Compile the Java code
+RUN javac Main.java
+
+# 5. Run the Java app (CMD can be overridden)
+CMD ["java", "Main"]
